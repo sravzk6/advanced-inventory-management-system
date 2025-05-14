@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      background-image: url('https://rare-gallery.com/uploads/posts/507984-blurred.jpg');
+    }
+
+    form {
+      margin: 0 auto;
+      width: 300px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+      width: calc(100% - 20px);
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <form id="loginForm">
+    <header><h2>Login</h2></header>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+
+    <input type="submit" value="Login">
+  </form>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      // Your login processing logic goes here (not provided, handle authentication on the server)
+
+      // Assuming successful login, redirect to homepage.html
+      window.location.href = './homepage.html';
+    });
+  </script>
+</body>
+</html>

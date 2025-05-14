@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Obsolete Products</title>
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* Table styles */
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+    }
+
+    /* Additional styles */
+    .container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Obsolete Products</h1>
+  </header>
+  <div class="container">
+    <table id="obsoleteTable">
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Present Quantity</th>
+          <th>Actual Quantity</th>
+          <th>Price</th>
+          <th>Supplier</th>
+          <th>Manufactured Date</th>
+          <th>Expiry Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sample data for 10 products -->
+        <tr>
+          <td>1</td>
+          <td>Oranges</td>
+          <td>2</td>
+          <td>25</td>
+          <td>20.00/-</td>
+          <td>Supplier 1</td>
+          <td>2023-01-01</td>
+          <td>2024-01-01</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Apples</td>
+            <td>100</td>
+            <td>200</td>
+            <td>50.00/-</td>
+            <td>Supplier 2</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Bananas</td>
+            <td>50</td>
+            <td>50</td>
+            <td>25.00/-</td>
+            <td>Supplier 3</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Grapes</td>
+            <td>100</td>
+            <td>200</td>
+            <td>60.00/-</td>
+            <td>Supplier 1</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Milk</td>
+            <td>0</td>
+            <td>10</td>
+            <td>35.00/-</td>
+            <td>Supplier 2</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Carrots</td>
+            <td>0</td>
+            <td>60</td>
+            <td>50.00/-</td>
+            <td>Supplier 3</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr><tr>
+            <td>7</td>
+            <td>Lays</td>
+            <td>100</td>
+            <td>150</td>
+            <td>10.00/-</td>
+            <td>Supplier 1</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Oil</td>
+            <td>0</td>
+            <td>80</td>
+            <td>60.00/-</td>
+            <td>Supplier 2</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Biscuit Packets</td>
+            <td>40</td>
+            <td>100</td>
+            <td>15.00/-</td>
+            <td>Supplier 3</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Chocolates</td>
+            <td>0</td>
+            <td>100</td>
+            <td>30.00/-</td>
+            <td>Supplier 1</td>
+            <td>2023-01-01</td>
+            <td>2024-01-01</td>
+          </tr>
+        <!-- Add more rows with similar data -->
+        <!-- ... -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const obsoleteTable = document.getElementById('obsoleteTable');
+      const rows = obsoleteTable.getElementsByTagName('tr');
+
+      // Loop through rows and show only obsolete products
+      for (let i = 1; i < rows.length; i++) { // Start from 1 to skip header row
+        const cells = rows[i].getElementsByTagName('td');
+        const presentQuantity = parseInt(cells[2].innerText); // Assuming present quantity is in the third column
+        const actualQuantity = parseInt(cells[3].innerText); // Assuming actual quantity is in the fourth column
+
+        if (presentQuantity >= actualQuantity / 2) {
+          rows[i].style.display = 'table-row'; // Show the row if present quantity is greater than or equal to half of actual quantity
+        } else {
+          rows[i].style.display = 'none'; // Hide the row if not obsolete
+        }
+      }
+    });
+  </script>
+</body>
+</html>
